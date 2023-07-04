@@ -1,9 +1,49 @@
 .header {
-  &__icon {
-
+  max-width: 1140px;
+  margin: 0 auto;
+  
+  &__container {
+    width: 1140px;
+    display: flex;
+    align-items: center;
+    gap: 160px;
+    background: linear-gradient(25deg, rgba(255,255,255,0.06) 40%, rgba(237,237,237,0.3) 100%);
+    border-radius: 13px;
+    border: 1px solid rgba(237,237,237,0.3);
+    backdrop-filter: blur(8px);
+    background-color: #0000009C;
+    position: fixed;
+    top: 15px;
+    padding: 4px 4px 4px 12px;
   }
   &__img {
     width: 65px;
     height: 65px;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    &__item {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 20px;
+      color: #ffffff;
+      line-height: 20px;
+      text-transform: uppercase;
+      transition: 0.4s;
+
+      &:hover {
+        color: #F5A300;
+      }
+    }
+  }
+}
+
+//ADAPTIVE
+
+@media screen and (max-width: 1024px) {
+  .header {
+    margin: 0 auto;
   }
 }
