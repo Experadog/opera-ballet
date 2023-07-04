@@ -51,7 +51,11 @@ export const Header = () => {
             ? <ul className={cls.header__burger__nav}>
               {
                 HeaderList.map(({ id, caption, path }) => (
-                  <li key={id} className={cls.header__burger__nav__list}>
+                  <li
+                    key={id}
+                    className={cls.header__burger__nav__list}
+                    onClick={() => setMenu(false)}
+                  >
                     <NavLink
                       to={path}
                       className={cls.header__burger__nav__item}
