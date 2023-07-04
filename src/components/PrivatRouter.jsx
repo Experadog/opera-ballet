@@ -2,14 +2,19 @@
 // import React from 'react';
 
 import { Route, Routes } from "react-router-dom";
-import { path } from "../constants/path";
+
 import AppLayout from "./layouts/AppLayout";
+import { path } from "../constants/path";
+import { Header } from "./shared/header/Header";
 
 const PrivatRouter = () => {
   return (
-    <Routes>
-      <Route path={path.MAINPATH} element={<AppLayout />} />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path={path.MAINPATH} element={<AppLayout />} />
+      </Routes>
+    </>
   )
 }
 
