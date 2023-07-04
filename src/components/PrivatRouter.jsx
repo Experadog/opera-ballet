@@ -13,7 +13,7 @@ const PrivatRouter = () => {
       <Routes>
         <Route path={path.MAINPATH} element={<AppLayout />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
