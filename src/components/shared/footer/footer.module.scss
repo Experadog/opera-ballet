@@ -1,41 +1,29 @@
-.container {
-  width: 1240px;
-  margin: auto;
-}
-
 footer {
+  background-color: #1d1d1d;
 
+  .container {
+    width: 1240px;
+    margin: auto;
 
-  &__top {
-
-
-    &__left {
-
-
-      &__contacts {
-
-
-        h2 {
-
+    &__top {
+      &__left {
+        &__contacts {
+          h2 {
+            color: #cecece;
+            font-size: 18px;
+            font-weight: 600;
+          }
         }
-      }
 
-      &__elements {
+        &__elements {
+          ul {
+            li {
+              color: white;
 
+              a {
+              }
 
-        ul {
-
-
-          li {
-
-            span {
-
-            }
-
-            img {
-              
-              svg {
-                color: white;
+              span {
               }
             }
           }
