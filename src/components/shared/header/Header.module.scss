@@ -1,0 +1,146 @@
+.header {
+  max-width: 1140px;
+  margin: 0 auto;
+  
+  &__container {
+    width: 1140px;
+    display: flex;
+    align-items: center;
+    gap: 160px;
+    background: linear-gradient(25deg, rgba(255,255,255,0.06) 40%, rgba(237,237,237,0.3) 100%);
+    border-radius: 13px;
+    border: 1px solid rgba(237,237,237,0.3);
+    backdrop-filter: blur(8px);
+    background-color: #0000009C;
+    position: fixed;
+    top: 15px;
+    padding: 4px 4px 4px 12px;
+  }
+  &__img {
+    width: 65px;
+    height: 65px;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    &__list {
+      padding: 13px 20px;
+    }
+    &__item {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 20px;
+      text-transform: uppercase;
+      transition: 0.4s;
+      background: none !important;
+
+      &:hover {
+        color: #F5A300;
+      }
+    }
+  }
+  &__burger {
+    display: none;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,.05);
+    padding: 5px 5px 3px 5px;
+    cursor: pointer;
+    &__item {
+      color: #ffffff;
+      font-size: 23px;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      .header__burger__item {
+        color: #F5A300;
+      }
+    }
+
+    &__nav {
+      position: absolute;
+      top: 75px;
+      left: 0;
+      border: 1px groove #ffffff;
+      width: 100%;
+      background-color: #616060C7;
+      border-radius: 0px 0px 4px 4px;
+      
+
+      &__list {
+        text-align: center;
+      }
+
+      &__item {
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 20px;
+        text-transform: uppercase;
+        transition: 0.4s;
+        padding: 10px 40px;
+  
+        &:hover {
+          color: #F5A300;
+          background-color: #6866669E;
+        }
+      }
+    }
+  }
+}
+
+//ADAPTIVE
+
+@media screen and (max-width: 1150px) {
+  .header {
+    width: 90%;
+    margin: 0 auto;
+    &__container {
+      width: 90%;
+      gap: 130px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    &__container {
+      gap: 0;
+      justify-content: space-between;
+    }
+    &__nav {
+      display: none;
+    }
+    &__burger {
+      display: block;
+      margin-right: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    &__img {
+      width: 49px;
+      height: 49px;
+    }
+    &__burger {
+      &__nav {
+        &__item {
+          padding: 4px 100px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    &__burger {
+      margin-right: 30px;
+    }
+  }
+}
