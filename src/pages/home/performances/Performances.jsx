@@ -38,7 +38,7 @@ export const Performances = () => {
         navigation
         pagination={{ clickable: true }}
         // loop={true}
-        autoplay={{ delay: 1000 }}
+        autoplay={{ delay: 2000 }}
         speed={1000}
       >
         {
