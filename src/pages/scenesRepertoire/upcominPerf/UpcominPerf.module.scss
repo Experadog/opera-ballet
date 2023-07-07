@@ -4,10 +4,10 @@
   padding: 5px 10px;
   background-image: linear-gradient(137deg, #000000 0%, #000000 0%);
   border-radius: 15px;
-  border: 1px solid rgba(237,237,237,0.2);
+  border: 1px solid rgba(237, 237, 237, 0.2);
   backdrop-filter: blur(8px);
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0;
 
   &__date {
     display: flex;
@@ -58,13 +58,13 @@
     bottom: 4%;
     text-align: center;
   }
-  
+
   &__btn {
     font-size: 15px;
     font-weight: 500;
     color: #000000;
-    background-color: #FFFFFF;
-    border: 1px groove #B9B6B6;
+    background-color: #ffffff;
+    border: 1px groove #b9b6b6;
     border-radius: 24px;
     padding: 12px 24px;
     text-transform: uppercase;
@@ -72,13 +72,12 @@
     cursor: pointer;
 
     &:hover {
-      border-color: #F5A300;
-      background-color: #F5A300;
+      border-color: #f5a300;
+      background-color: #f5a300;
       transform: scale(0.9);
     }
   }
 }
-
 
 /*ADAPTIVE*/
 @media screen and (max-width: 1220px) {
@@ -87,9 +86,36 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .upcomin_card {
+    width: 48%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .swiper_card {
     width: 90%;
   }
+
+  .upcomin_card {
+    width: 47%;
+  }
 }
 
+@media screen and (max-width: 425px) {
+  .upcomin_card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .upcomin_card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .upcomin_card {
+    width: 100%;
+  }
+}
