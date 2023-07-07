@@ -1,11 +1,21 @@
 .scenesRepertoire__cards {
   display: flex;
-  gap: 30px;
+  align-items: center;
   flex-flow: wrap;
+  justify-content: center;
+  gap: 30px;
   margin: 10px 0;
 }
 
 .container {
-  width: 1140px;
+  max-width: 1440px;
   margin: auto;
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+}
+
