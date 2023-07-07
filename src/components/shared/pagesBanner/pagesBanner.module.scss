@@ -16,3 +16,19 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .black__banner {
+    h2 {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .black__banner {
+    h2 {
+      margin-top: 40px;
+      font-size: 40px;
+    }
+  }
+}
