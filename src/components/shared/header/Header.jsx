@@ -30,7 +30,7 @@ export const Header = () => {
                 <NavLink
                   to={path}
                   className={cls.header__nav__item}
-                  activeClassName={"active"}
+                  activeclassname={"active"}
                 >
                   {caption}
                 </NavLink>
@@ -59,7 +59,7 @@ export const Header = () => {
                     <NavLink
                       to={path}
                       className={cls.header__burger__nav__item}
-                      activeClassName={"active"}
+                      activeclassname={"active"}
                     >
                       {caption}
                     </NavLink>

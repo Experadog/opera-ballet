@@ -11,8 +11,6 @@ footer {
       align-items: center;
       justify-content: space-around;
       padding: 10px;
-      
-      
 
       &__left {
         padding: 10px;
@@ -27,7 +25,6 @@ footer {
         }
 
         &__elements {
-          
           ul {
             display: flex;
             align-items: flex-start;
@@ -56,13 +53,13 @@ footer {
         padding: 10px;
         text-align: center;
 
-          &__title {
-            color: #cecece;
-            font-size: 18px;
-            font-weight: 600;
-            font-family: "Montserrat", Sans-serif;
-            padding-bottom: 4px;
-          }
+        &__title {
+          color: #cecece;
+          font-size: 18px;
+          font-weight: 600;
+          font-family: "Montserrat", Sans-serif;
+          padding-bottom: 4px;
+        }
 
         &__elements {
           display: flex;
@@ -104,7 +101,6 @@ footer {
       gap: 17px;
 
       &__icons {
-        
         ul {
           display: flex;
           align-items: center;
@@ -117,7 +113,7 @@ footer {
         text-align: center;
 
         &__title {
-          color: #ACACAC;
+          color: #acacac;
           font-family: "Shadows Into Light Two", Sans-serif;
           font-size: 31px;
           font-weight: 600;
@@ -144,12 +140,73 @@ footer {
   }
 }
 
-
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1024px) {
   .container {
     width: 80%;
     margin: auto;
   }
+}
 
-  
+@media screen and (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  footer {
+    .container {
+      .footer__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+        &__left {
+          &__title {
+            font-size: 16px;
+          }
+
+          &__elements {
+            ul {
+              display: flex;
+              gap: 5px;
+              li {
+                a {
+                  display: flex;
+                  align-items: center;
+                  gap: 1px;
+                  span {
+                    font-size: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &__right {
+          &__title {
+            font-size: 16px;
+          }
+
+          &__elements {
+            ul {
+              display: flex;
+              gap: 5px;
+              li {
+                a {
+                  display: flex;
+                  gap: 4px;
+                  span {
+                    font-size: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
