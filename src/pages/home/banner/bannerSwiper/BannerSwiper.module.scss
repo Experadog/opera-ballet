@@ -1,0 +1,41 @@
+.banner_swiper {
+  position: relative;
+  max-width: 248px;
+  height: 320px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: absolute;
+    left: 10%;
+    bottom: 5%;
+  }
+
+  &__text {
+    color: #B7B5B5;
+    font-family: "Poppins", Sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 10px;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ffffff;
+  }
+}

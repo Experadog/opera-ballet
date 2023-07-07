@@ -8,6 +8,7 @@ import 'swiper/css/bundle';
 import { PeopleList } from '../../../constants/peopleList';
 import { PeopleCard } from './peopleCard/PeopleCard';
 import { Link } from 'react-router-dom';
+import { path } from '../../../constants/path';
 
 export const People = () => {
   const breakpoints = {
@@ -53,7 +54,7 @@ export const People = () => {
           }
         </Swiper>
         <div className={cls.people__link}>
-          <Link>Больше...</Link>
+          <Link to={path.ARTISTS}>Больше...</Link>
         </div>
       </div>
     </div>
