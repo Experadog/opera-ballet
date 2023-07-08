@@ -8,4 +8,5 @@ export const path = {
   ARTISTS: "/artists",
   CONTACTS: "/contacts",
   POSTER: "/poster",
+  ACTOR: "/actor/:id"
 }

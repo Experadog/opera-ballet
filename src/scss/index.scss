@@ -40,3 +40,18 @@
    }
 }
 
+
+
+
+/*AOS*/
+
+.aos-animate {
+   opacity: 1 !important;
+   transform: translate(0, 0) !important;
+   transition: all 0.3s ease-in-out;
+}
+
+.aos-fade-up {
+   opacity: 0;
+   transform: translate(0, 50px);
+}

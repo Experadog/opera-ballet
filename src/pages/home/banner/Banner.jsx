@@ -4,6 +4,8 @@ import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { ImPriceTag } from "react-icons/im";
+import AOS from 'aos';
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 import { BannerList } from '../../../constants/bannerList';
 import { BannerSwiper } from './bannerSwiper/BannerSwiper';
@@ -11,6 +13,8 @@ import { BannerSwiper } from './bannerSwiper/BannerSwiper';
 import cls from "./Banner.module.scss";
 import 'swiper/css';
 import 'swiper/css/bundle';
+import 'aos/dist/aos.css';
+import classNames from 'classnames';
 
 export const Banner = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -21,6 +25,9 @@ export const Banner = () => {
     setActiveIndex(swiper.realIndex);
   };
 
+  React.useEffect(() => {
+    AOS.init();
+  }, [activeIndex]);
 
   return (
     <div style={{
@@ -31,9 +38,11 @@ export const Banner = () => {
       <div className={cls.banner__wrapper}>
         <div className={cls.banner__dots}>
           {
-            BannerList.map((item) =>
+            BannerList.map((item, index) =>
               <div key={item.id} className={cls.banner__dot}>
-                <div className={cls.banner__dot_block}>
+                <div className={classNames(cls.banner__dot_block, {
+                  "banner__dot_active": index === activeIndex
+                })}>
                   <div className={cls.banner__dot_number}>
                     {item.id}
                   </div>
@@ -44,13 +53,13 @@ export const Banner = () => {
         </div>
 
         <div className={cls.banner__content}>
-          <h2 className={cls.banner__content_title}>
+          <h2 data-aos="fade-up" className={cls.banner__content_title}>
             {bannerContent.title}
           </h2>
-          <p className={cls.banner__content_date}>
+          <p data-aos="fade-up" className={cls.banner__content_date}>
             {bannerContent.date}
           </p>
-          <div className={cls.banner__content_info}>
+          <div data-aos="fade-up" className={cls.banner__content_info}>
             <div className={cls.banner__content_duration}>
               <AiOutlineClockCircle /> Продолжительность: {bannerContent.duration}
             </div>
@@ -62,13 +71,14 @@ export const Banner = () => {
             </div>
           </div>
           <div>
-            <button className={cls.banner__content_btn}>
+            <button data-aos="fade-up" className={cls.banner__content_btn}>
               Подробнее
             </button>
           </div>
         </div>
 
         <Swiper
+          data-aos="fade-left"
           className={cls.banner__swipe}
           // breakpoints={breakpoints}
           modules={[Navigation, Pagination, A11y, Autoplay]}
@@ -92,6 +102,10 @@ export const Banner = () => {
             )
           }
         </Swiper>
+      </div>
+      <div className={cls.banner__buttons}>
+        <FiArrowLeft className={cls.banner__buttons_btn} />
+        <FiArrowRight className={cls.banner__buttons_btn} />
       </div>
     </div>
   )
