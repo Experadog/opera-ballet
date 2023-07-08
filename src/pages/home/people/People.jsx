@@ -42,7 +42,7 @@ export const People = () => {
           navigation
           pagination={{ clickable: true }}
           // loop={true}
-          autoplay={{ delay: 2000 }}
+          autoplay={{ delay: 3000 }}
           speed={1000}
         >
           {

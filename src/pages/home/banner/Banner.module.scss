@@ -101,6 +101,14 @@
       border-radius: 22px;
       font-size: 15px;
       padding: 12px 24px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #FFFFFF;
+        border-color: #F5A300;
+        transform: scale(0.8);
+      }
     }
   }
 

@@ -2,15 +2,20 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { MdClose } from "react-icons/md";
 import { HiMenu } from "react-icons/hi";
+import AOS from 'aos';
 
 import { path } from '../../../constants/path';
 import { HeaderList } from '../../../constants/headerList';
 
+import 'aos/dist/aos.css';
 import cls from "./Header.module.scss";
 
 export const Header = () => {
   const [menu, setMenu] = React.useState(false);
 
+  React.useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <div className={cls.header}>
@@ -48,7 +53,7 @@ export const Header = () => {
         </div>
         {
           menu
-            ? <ul className={cls.header__burger__nav}>
+            ? <ul data-aos="fade-down" className={cls.header__burger__nav}>
               {
                 HeaderList.map(({ id, caption, path }) => (
                   <li

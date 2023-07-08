@@ -6,6 +6,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { ImPriceTag } from "react-icons/im";
 import AOS from 'aos';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import classNames from 'classnames';
 
 import { BannerList } from '../../../constants/bannerList';
 import { BannerSwiper } from './bannerSwiper/BannerSwiper';
@@ -14,7 +15,6 @@ import cls from "./Banner.module.scss";
 import 'swiper/css';
 import 'swiper/css/bundle';
 import 'aos/dist/aos.css';
-import classNames from 'classnames';
 
 export const Banner = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);

@@ -7,6 +7,7 @@ import { SwiperCard } from '../swiperCard/SwiperCard';
 import cls from "./Performances.module.scss";
 import 'swiper/css';
 import 'swiper/css/bundle';
+import { Link } from 'react-router-dom';
 
 export const Performances = () => {
   const breakpoints = {
@@ -38,7 +39,7 @@ export const Performances = () => {
         navigation
         pagination={{ clickable: true }}
         // loop={true}
-        autoplay={{ delay: 2000 }}
+        autoplay={{ delay: 3000 }}
         speed={1000}
       >
         {
@@ -49,6 +50,11 @@ export const Performances = () => {
           )
         }
       </Swiper>
+      <div className={cls.performances__link}>
+        <Link to={"/scenes"}>
+          Афиша спектаклей
+        </Link>
+      </div>
     </div>
   )
 };
