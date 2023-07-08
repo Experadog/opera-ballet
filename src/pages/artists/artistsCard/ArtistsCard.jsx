@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import cls from "./ArtistsCard.module.scss";
 
-export const ArtistsCard = ({ url, name, job }) => {
+export const ArtistsCard = ({ id, url, name, job }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className={cls.artists_card}>
+    <div onClick={() => navigate(`/actor/${id}`)} className={cls.artists_card}>
       <div className={cls.artists_card__wrapper}>
         <img
           className={cls.artists_card__image}
