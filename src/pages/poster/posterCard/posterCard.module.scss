@@ -1,0 +1,93 @@
+.poster__right__flex__card {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 20px;
+
+  &__link {
+    a {
+      img {
+        width: 380px;
+        height: 250px;
+        border-radius: 15px;
+        object-fit: cover;
+      }
+    }
+  }
+  h4 {
+    a {
+      font-family: "Play", Sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #54595f;
+    }
+  }
+  p {
+    a {
+      font-family: "Play", Sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: #f5a300;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .poster__right__flex__card {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 160px;
+
+    &__link {
+      a {
+        img {
+          width: 150px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .poster__right__flex__card {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 120px;
+
+    &__link {
+      a {
+        img {
+          width: 105px;
+          height: 70px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .poster__right__flex__card {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+
+    
+
+    &__link {
+      a {
+        img {
+          width: 380px;
+          height: 190px;
+        }
+      }
+    }
+  }
+}

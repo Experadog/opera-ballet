@@ -1,6 +1,11 @@
 .container {
-  max-width: 1440px;
+  max-width: 1140px;
   margin: auto;
+
+  &__flex {
+    display: flex;
+    padding-top: 10px;
+  }
 }
 
 .poster {
@@ -23,7 +28,7 @@
 
   &__left {
     padding-bottom: 40px;
-    width: 65%;
+    width: 63%;
     display: flex;
     align-items: center;
     flex-flow: column;
@@ -51,7 +56,7 @@
       &__info {
         display: flex;
         align-items: flex-start;
-        gap: 70px;
+        justify-content: space-between;
 
         &__icons {
           display: flex;
@@ -111,7 +116,7 @@
 
       p {
         color: #7a7a7a;
-        line-height: 2;
+        line-height: 1.8;
         font-size: 14px;
         letter-spacing: 5;
         font-weight: 500;
@@ -122,20 +127,136 @@
         display: flex;
         align-items: center;
         max-width: 100%;
-        gap: 170px;
+        gap: 250px;
         color: #54595f;
         font-size: 11.2px;
         padding-top: 40px;
         padding-left: 20px;
         font-weight: 500;
         font-family: "Play", sans-serif;
-        span {
 
+        span {
+          font-size: 30px;
+          color: gray;
         }
       }
     }
   }
+  
 
   &__right {
+    &__title {
+      font-size: 25px;
+      color: #ffaa00;
+      font-weight: 600;
+      padding-bottom: 20px;
+    }
+
+    padding-bottom: 40px;
+    width: 37%;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+
+    &__flex {
+      display: flex;
+      flex-flow: column;
+      text-align: center;
+      gap: 20px;
+
+      
+    }
+  }
+}
+
+// adaptive
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 90%;
+  }
+
+  .poster {
+    &__banner {
+      h2 {
+        font-size: 30px;
+      }
+    }
+
+    &__right {
+
+      &__flex {
+        display: flex;
+        flex-flow: wrap;
+        gap: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .poster {
+    &__banner {
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    &__right {
+
+      &__flex {
+        display: flex;
+        flex-flow: wrap;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .container {
+    max-width: 90%;
+    margin: auto;
+  
+    &__flex {
+      display: flex;
+      flex-flow: column;
+      padding-top: 10px;
+    }
+  }
+
+  .poster {
+    flex-flow: column;
+
+    &__banner {
+      margin-bottom: 15px;
+      padding: 0;
+    }
+
+    &__left {
+      width: 100%;
+
+      &__description {
+        a {
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &__right {
+      width: 100%;
+
+      &__flex {
+        display: flex;
+        flex-flow: column;
+        gap: 20px;
+      }
+    }
   }
 }
