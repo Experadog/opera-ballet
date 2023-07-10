@@ -55,3 +55,39 @@
    opacity: 0;
    transform: translate(0, 50px);
 }
+
+
+
+
+/*DOT*/
+.banner__dot_active {
+   position: absolute;
+   left: -130%;
+   width: 23px;
+   height: 23px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: 0.3s;
+
+   .banner__dot_number_active {
+      opacity: 1;
+   }
+}
+
+
+.banner_swiper__active {
+   height: 410px;
+}
+
+@media screen and (max-width: 1024px) {
+   .banner_swiper__active {
+      height: 350px;
+   }
+}
+
+@media screen and (max-width: 769px) {
+   .banner_swiper__active {
+      height: auto;
+   }
+}

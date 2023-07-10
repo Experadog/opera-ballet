@@ -2,27 +2,27 @@ import { path } from "./path";
 
 export const HeaderList = [
   {
-    id: 1,
+    id: 11,
     caption: "ГЛАВНАЯ",
     path: path.HOME
   },
   {
-    id: 2,
+    id: 22,
     caption: "СЦЕНЫ И РЕПЕРТУАР",
     path: path.SCENES
   },
   {
-    id: 3,
+    id: 33,
     caption: "О ТЕАТРЕ",
     path: path.ABOUT
   },
   {
-    id: 4,
+    id: 44,
     caption: "АРТИСТЫ",
     path: path.ARTISTS
   },
   {
-    id: 5,
+    id: 55,
     caption: "КОНТАКТЫ",
     path: path.CONTACTS
   },

@@ -1,10 +1,13 @@
 import React from 'react';
 
 import cls from "./BannerSwiper.module.scss";
+import classNames from 'classnames';
 
-export const BannerSwiper = ({ url, title }) => {
+export const BannerSwiper = ({ activeIndex, id, url, title }) => {
   return (
-    <div className={cls.banner_swiper}>
+    <div className={classNames(cls.banner_swiper, {
+      "banner_swiper__active": id === activeIndex + 1
+    })}>
       <img
         className={cls.banner_swiper__img}
         src={url}

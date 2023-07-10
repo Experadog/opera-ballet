@@ -19,7 +19,7 @@ export const Header = () => {
 
   return (
     <div className={cls.header}>
-      <div className={cls.header__container}>
+      <div data-aos="fade-down" className={cls.header__container}>
         <Link to={path.HOME} className={cls.header__icon}>
           <img
             className={cls.header__img}
