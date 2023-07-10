@@ -86,7 +86,9 @@ export const Banner = () => {
           spaceBetween={8}
           slidesPerView={2}
           slidesPerGroup={1}
-          // loop={true}
+          loop={true}
+          navigation={{ nextEl: ".swiper-button-next-banner", prevEl: ".swiper-button-prev-banner" }}
+          pagination={{ el: ".swiper-pagination-banner", clickable: true }}
           autoplay={{ delay: 2000 }}
           speed={1000}
           direction='horizontal'
@@ -96,7 +98,7 @@ export const Banner = () => {
           {
             BannerList.map(item =>
               <>
-                <SwiperSlide key={item.id}>
+                <SwiperSlide className={"swiper-button-next-banner"} key={item.id}>
                   <BannerSwiper activeIndex={activeIndex} {...item} />
                 </SwiperSlide>
               </>
@@ -105,8 +107,8 @@ export const Banner = () => {
         </Swiper>
       </div>
       <div className={cls.banner__buttons}>
-        <FiArrowLeft className={cls.banner__buttons_btn} />
-        <FiArrowRight className={cls.banner__buttons_btn} />
+        <FiArrowLeft className={classNames(cls.banner__buttons_btn, "swiper-button-prev-banner")} />
+        <FiArrowRight className={classNames(cls.banner__buttons_btn, "swiper-button-next-banner")} />
       </div>
     </div>
   )
