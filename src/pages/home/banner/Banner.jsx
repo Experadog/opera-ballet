@@ -36,14 +36,16 @@ export const Banner = () => {
       backgroundPosition: 'center',
     }} className={cls.banner}>
       <div className={cls.banner__wrapper}>
-        <div className={cls.banner__dots}>
+        <div data-aos="fade-left" className={cls.banner__dots}>
           {
             BannerList.map((item, index) =>
-              <div key={item.id} className={cls.banner__dot}>
+              <div key={item.id} className={cls.banner__dot} >
                 <div className={classNames(cls.banner__dot_block, {
                   "banner__dot_active": index === activeIndex
                 })}>
-                  <div className={cls.banner__dot_number}>
+                  <div className={classNames(cls.banner__dot_number, {
+                    "banner__dot_number_active": index === activeIndex
+                  })}>
                     {item.id}
                   </div>
                 </div>
@@ -80,7 +82,6 @@ export const Banner = () => {
         <Swiper
           data-aos="fade-left"
           className={cls.banner__swipe}
-          // breakpoints={breakpoints}
           modules={[Navigation, Pagination, A11y, Autoplay]}
           spaceBetween={8}
           slidesPerView={2}
@@ -95,8 +96,8 @@ export const Banner = () => {
           {
             BannerList.map(item =>
               <>
-                <SwiperSlide className={activeIndex === item.id ? "banner__swiper-active" : ""} key={item.id}>
-                  <BannerSwiper {...item} />
+                <SwiperSlide key={item.id}>
+                  <BannerSwiper activeIndex={activeIndex} {...item} />
                 </SwiperSlide>
               </>
             )

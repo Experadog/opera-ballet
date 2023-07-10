@@ -3,6 +3,7 @@
   border: 1px solid #000000;
   background:#000000;
   padding: 30px 0;
+  transition: 0.8s;
 
   &::before {
     content: "";
@@ -29,6 +30,7 @@
     height: 100%;
     position: absolute;
     left: 0;
+    transition: 0.8s;
     
     &::before {
       content: "";
@@ -58,11 +60,13 @@
       font-size: 13px;
       font-weight: bold;
       opacity: 0;
+      transition: 0.5s;
     }
   }
 
   &__swipe {
     width:70%;
+    height: 410px;
   }
 
   &__content {
@@ -72,6 +76,7 @@
     width: 70%;
     color: #ffffff;
     margin-left: 50px;
+    transition: 0.8s;
 
     &_title {
       font-family: "Roboto", Sans-serif;
@@ -138,3 +143,28 @@
 }
 
 
+
+@media screen and (max-width: 769px) {
+  .banner {
+    &__wrapper {
+      flex-direction: column;
+    }
+    &__dots {
+      display: none;
+    }
+    &__content {
+      width: 100%;
+      margin: 70px 0 0 0;
+      &_title {
+        font-size: 20px;
+      }
+    }
+    &__buttons {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      bottom: 2%;
+    }
+  }
+}
