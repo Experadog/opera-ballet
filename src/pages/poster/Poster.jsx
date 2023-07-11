@@ -1,42 +1,43 @@
 // import React from 'react';
 
 import { ShowList } from "../../constants/ShowList";
-import PosterCard from "./posterCard/PosterCard";
+import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 import cls from "./poster.module.scss";
 
 export default function Poster() {
-
-  const cutList = ShowList.slice(0,3)
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const data = ShowList.find((item) => item.id === Number(id));
+  const show = ShowList.filter((item) => item.id !== data.id).slice(0, 3);
 
   return (
     <div className={cls.poster}>
       <div className={cls.poster__banner}>
-        <h2 className={cls.poster__banner__title}>hans zimmer live</h2>
+        <h2 className={cls.poster__banner__title}>{data.title}</h2>
       </div>
       <div className={cls.container}>
         <div className={cls.container__flex}>
           <div className={cls.poster__left}>
             <div className={cls.poster__left__image}>
-              <img src="/src/assets/img/hans-zimmer.png" alt="" />
+              <img src={data.url} alt={data.title} />
             </div>
             <div className={cls.poster__left__content}>
-              <h4 className={cls.poster__left__content__title}>
-                hans zimmer live
-              </h4>
+              <h4 className={cls.poster__left__content__title}>{data.title}</h4>
               <div className={cls.poster__left__content__info}>
                 <div className={cls.poster__left__content__info__icons}>
                   <div>
                     <img src="/src/assets/icons/time-icon.svg" alt="" />
-                    <p>July 22, 2023 19:00</p>
+                    <p>{data.date}</p>
                   </div>
                   <div>
                     <img src="/src/assets/icons/price-icon.svg" alt="" />
-                    <p>1000 - 2500 сом</p>
+                    <p>{data.price}</p>
                   </div>
                   <div>
                     <img src="/src/assets/icons/geo-icon.svg" alt="" />
-                    <p>Кыргызский театр оперы и балета им А.Малдыбаева</p>
+                    <p>{data.geo}</p>
                   </div>
                 </div>
                 <div className={cls.poster__left__content__info__button}>
@@ -45,33 +46,7 @@ export default function Poster() {
               </div>
               <div className={cls.poster__left__description}>
                 <h4>ОПИСАНИЕ</h4>
-                <p>
-                  PERFORMANCE представляет новую программу «Hans Zimmer Live».
-                  Многие жители Бишкека и гости столицы уже знакомы с игрой
-                  большого симфонического оркестра под руководством Урмата
-                  Тентимишова! Хотим обрадовать нашего зрителя тем, что мы
-                  подготовили новую программу, вдохновившись произведениями
-                  великого композитора современности – Ханса Циммера! 22 июля
-                  2023 г., в 19:00 Кыргызский театр оперы и балета им.
-                  А.Малдыбаева Стоимость – от 1000 – 2500 сом Билеты в кассе
-                  Театра оперы и балета «Hans Zimmer Live» — новое симфоническое
-                  шоу саундтреков, дань уважения великому композитору
-                  современности Хансу Циммеру. Каждая работа Ханса Циммера — это
-                  новая вершина в мире музыкального искусства. Не имея
-                  музыкального образования, композитор разрушил все стереотипы и
-                  стал самым успешным создателем саундтреков в Голливуде. Ханс
-                  Циммер не просто пишет музыку, он создает всю атмосферу
-                  фильма, наполняя киноленту удивительными музыкальными мотивами
-                  и аранжировками. Абсолютный новатор в творчестве. Его
-                  сотрудничество с любым режиссёром уже означает успех для
-                  фильма. Мрачный «Темный Рыцарь», фантастический
-                  «Интерстеллар», героичный «Гладиатор» и отважные «Пираты
-                  Карибского моря» — вся эта музыка не просто узнаваема, она
-                  любима зрителями. Согласитесь, слушая эти мелодии Вы
-                  вдохновлялись героями фильмов, сопереживали им, радовались за
-                  них и испытывали самые яркие эмоции! То же самое ждёт Вас и на
-                  нашем вечере!
-                </p>
+                <p>{data.description}</p>
                 <a href="#">
                   BISHKEK BIG BAND
                   <span>|</span>
@@ -80,10 +55,29 @@ export default function Poster() {
             </div>
           </div>
           <div className={cls.poster__right}>
-              <h3 className={cls.poster__right__title}>АФИША</h3>
+            <h3 className={cls.poster__right__title}>АФИША</h3>
             <div className={cls.poster__right__flex}>
-              {cutList.map((item) => (
-                <PosterCard key={item.id} {...item} />
+              {show.map((item) => (
+                <div 
+                  onClick={() => navigate(`/poster/${item.id}`)}
+                  key={item.id} 
+                  className={cls.poster__right__flex__card}
+                >
+                  <div className={cls.poster__right__flex__card__link}>
+                    <a>
+                      <img 
+                        src={item.url} 
+                        alt={item.title} 
+                      />
+                    </a>
+                  </div>
+                  <h4>  
+                    <Link to={`/poster/${item.id}`}>{item.title}</Link>
+                  </h4>
+                  <p>
+                    <a href="#">{item.date}</a>
+                  </p>
+                </div>
               ))}
             </div>
           </div>

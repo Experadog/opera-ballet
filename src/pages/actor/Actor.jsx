@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { PeopleList } from '../../constants/peopleList';
 
