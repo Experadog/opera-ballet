@@ -7,6 +7,6 @@ export const path = {
   ABOUT: "/about",
   ARTISTS: "/artists",
   CONTACTS: "/contacts",
-  POSTER: "/poster",
-  ACTOR: "/actor/:id"
+  POSTER: "/poster/:id",
+  ACTOR: "/actor/:id",
 }
