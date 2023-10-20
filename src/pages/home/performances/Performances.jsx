@@ -8,8 +8,11 @@ import cls from "./Performances.module.scss";
 import 'swiper/css';
 import 'swiper/css/bundle';
 import { Link } from 'react-router-dom';
+import useGetShows from '../../../hooks/useGetShows';
 
 export const Performances = () => {
+  const {scenesList} = useGetShows()
+
   const breakpoints = {
     // Брейкпоинт на ширине экрана >= 640px
     10: {
@@ -43,7 +46,7 @@ export const Performances = () => {
         speed={1000}
       >
         {
-          ShowList.map(item =>
+          scenesList.map(item =>
             <SwiperSlide key={item.id}>
               <SwiperCard {...item} />
             </SwiperSlide>

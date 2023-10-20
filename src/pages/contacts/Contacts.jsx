@@ -1,13 +1,13 @@
 // import React from 'react';
 
-import { PagesBanner } from "../../components/shared/pagesBanner/PagesBanner";
+import { PagesBanner } from '../../components/shared/pagesBanner/PagesBanner'
 
-import cls from "./contacts.module.scss";
+import cls from './contacts.module.scss'
 
 const Contacts = () => {
   return (
     <div className={cls.contacts}>
-      <PagesBanner title={"контакты"} />
+      <PagesBanner title={'контакты'} />
       <div className={cls.container}>
         <div className={cls.contacts__info}>
           <div>
@@ -153,7 +153,7 @@ const Contacts = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contacts;
+export default Contacts

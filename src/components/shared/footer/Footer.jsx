@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import cls from "./footer.module.scss";
+import cls from './footer.module.scss'
 
 export const Footer = () => {
   return (
@@ -143,5 +143,5 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}

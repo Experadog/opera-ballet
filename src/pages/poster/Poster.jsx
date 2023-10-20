@@ -1,16 +1,16 @@
 // import React from 'react';
 
-import { ShowList } from "../../constants/ShowList";
-import { useNavigate, useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { ShowList } from '../../constants/ShowList'
+import { useNavigate, useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 
-import cls from "./poster.module.scss";
+import cls from './poster.module.scss'
 
-export default function Poster() {
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const data = ShowList.find((item) => item.id === Number(id));
-  const show = ShowList.filter((item) => item.id !== data.id).slice(0, 3);
+export default function Poster () {
+  const navigate = useNavigate()
+  const { id } = useParams()
+  const data = ShowList.find((item) => item.id === Number(id))
+  const show = ShowList.filter((item) => item.id !== data.id).slice(0, 3)
 
   return (
     <div className={cls.poster}>
@@ -58,20 +58,20 @@ export default function Poster() {
             <h3 className={cls.poster__right__title}>АФИША</h3>
             <div className={cls.poster__right__flex}>
               {show.map((item) => (
-                <div 
+                <div
                   onClick={() => navigate(`/poster/${item.id}`)}
-                  key={item.id} 
+                  key={item.id}
                   className={cls.poster__right__flex__card}
                 >
                   <div className={cls.poster__right__flex__card__link}>
                     <a>
-                      <img 
-                        src={item.url} 
-                        alt={item.title} 
+                      <img
+                        src={item.url}
+                        alt={item.title}
                       />
                     </a>
                   </div>
-                  <h4>  
+                  <h4>
                     <Link to={`/poster/${item.id}`}>{item.title}</Link>
                   </h4>
                   <p>
@@ -84,5 +84,5 @@ export default function Poster() {
         </div>
       </div>
     </div>
-  );
+  )
 }

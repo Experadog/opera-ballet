@@ -1,9 +1,8 @@
-import PrivatRouter from "./components/PrivatRouter";
+import PrivatRouter from './components/PrivatRouter'
 
-import "./scss/index.scss";
+import './scss/index.scss'
 
-function App() {
-
+function App () {
   return (
     <>
       <PrivatRouter />
@@ -11,4 +10,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

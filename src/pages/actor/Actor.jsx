@@ -1,42 +1,58 @@
-// import React from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { PeopleList } from '../../constants/peopleList';
-
-import cls from "./Actor.module.scss";
-import { PagesBanner } from '../../components/shared/pagesBanner/PagesBanner';
+import React from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import cls from './Actor.module.scss'
+import { PagesBanner } from '../../components/shared/pagesBanner/PagesBanner'
+import { axiosRequest } from '../../api/api'
 
 const Actor = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const data = PeopleList.find(item => item.id === Number(id));
-  const people = PeopleList.filter(item => item.id !== data.id).slice(0, 4);
+  const [artistsList, setArtistsList] = React.useState([])
+  const [actorInfo, setActorInfo] = React.useState({})
+  const [peopleList, setPeopleList] = React.useState([])
+  const { id } = useParams()
+  const navigate = useNavigate()
 
+  const getArtist = React.useCallback(async () => {
+    const { data } = await axiosRequest.get('/artists/')
+
+    if (data.length === 0) {
+        return []
+    }
+
+    setArtistsList(data)
+    setActorInfo(data.find(item => item.id === id))
+    console.log(data.find(item => item.id === id))
+    setPeopleList(data.filter(item => item.id !== actorInfo.id).slice(0, 4))
+  }, [])
+
+  React.useEffect(() => {
+      getArtist()
+  }, [getArtist])
 
   return (
     <div className={cls.actor}>
-      <PagesBanner title={data.name} />
+      <PagesBanner title={`${actorInfo?.first_name} ${actorInfo?.last_name}`} />
       <div className={cls.actor__wrapper}>
 
         <div className={cls.actor__content}>
           <div className={cls.actor__content_img}>
-            <img src={data.url} alt={data.name} />
+            <img src={actorInfo?.image} alt={actorInfo?.first_name} />
           </div>
           <h2 className={cls.actor__content_name}>
-            {data.name}
+            {actorInfo?.first_name}
           </h2>
           <p className={cls.actor__content_job}>
-            {data.job}
+            {actorInfo?.title}
           </p>
           <p className={cls.actor__content_bio}>
-            {data.biography}
+            {actorInfo?.bio}
           </p>
           <div className={cls.actor__content_people}>
-            <Link to={`/actor/${people[0].id}`} className={cls.actor__content_people_link}>
-              {people[0].name}
+            <Link to={`/actor/${peopleList[0].id}`} className={cls.actor__content_people_link}>
+              {peopleList[0].name}
             </Link>
             <div className={cls.actor__content_people_line}>|</div>
-            <Link to={`/actor/${people[1].id}`} className={cls.actor__content_people_link}>
-              {people[1].name}
+            <Link to={`/actor/${peopleList[1].id}`} className={cls.actor__content_people_link}>
+              {peopleList[1].name}
             </Link>
           </div>
         </div>
@@ -46,7 +62,7 @@ const Actor = () => {
             Другие актеры
           </h2>
           {
-            people.map(item =>
+            peopleList?.map(item => (
               <div
                 key={item.id}
                 onClick={() => navigate(`/actor/${item.id}`)}
@@ -66,6 +82,7 @@ const Actor = () => {
                   подробнее »
                 </Link>
               </div>
+            ),
             )
           }
         </div>
@@ -74,4 +91,4 @@ const Actor = () => {
   )
 }
 
-export default Actor;
+export default Actor

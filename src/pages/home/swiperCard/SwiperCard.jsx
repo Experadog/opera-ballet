@@ -5,7 +5,7 @@ import { CiMoneyCheck1 } from "react-icons/ci";
 
 import cls from "./SwiperCard.module.scss";
 
-export const SwiperCard = ({ title, date, price, url }) => {
+export const SwiperCard = ({ title, date, price, image }) => {
 
   return (
     <div className={cls.swiper_card}>
@@ -20,7 +20,7 @@ export const SwiperCard = ({ title, date, price, url }) => {
       <Link className={cls.swiper_card__link}>
         <img
           className={cls.swiper_card__image}
-          src={url}
+          src={image}
           alt={title}
         />
       </Link>

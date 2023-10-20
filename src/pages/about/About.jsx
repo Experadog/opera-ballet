@@ -1,54 +1,58 @@
-import React from 'react';
+import React from 'react'
 
-import cls from "./About.module.scss";
-import { PagesBanner } from '../../components/shared/pagesBanner/PagesBanner';
-import { Theater } from './theater/Theater';
+import cls from './About.module.scss'
+import { PagesBanner } from '../../components/shared/pagesBanner/PagesBanner'
+import { Theater } from './theater/Theater'
+import { axiosRequest } from '../../api/api'
 
 const About = () => {
+  const [aboutInfo, setAboutInfo] = React.useState([])
+
+    const getAbout = React.useCallback(async () => {
+        const { data } = await axiosRequest.get('/abouts/abouts')
+
+        if (data.length === 0) {
+            return []
+        }
+
+        setAboutInfo(data[0])
+    }, [])
+
+    React.useEffect(() => {
+        getAbout()
+    }, [getAbout])
+
   return (
     <div className={cls.about}>
       <PagesBanner title="о театре" />
       <div className={cls.about__wrapper}>
         <div className={cls.about__content}>
           <h2 className={cls.about__content_title}>
-            О НАС
+            {aboutInfo.title}
           </h2>
           <p className={cls.about__content_text}>
-            Одной из достопримечательностей нашей столицы является Кыргызский национальный
-            ордена В.И.Ленина академический театр оперы и балета имени Абдыласа Малдыбаева.
-            Почему же театр носит имя этого человека? Малдыбаев Абдылас Малдыбаевич — кыргызский
-            советский композитор, оперный певец, актер, педагог, общественный деятель и народный
-            артист СССР. В творческом наследии композитора около 300 различных произведений, в том
-            числе свыше 200 песен и хоров. Сыграл большую роль в создании и развитии кыргызской
-            советской песни, явившись основоположником новых для Кыргызстана жанров, как песни-гимны,
-            песни-марши, романсы и детские песни, хоры, кантаты, оратории. Он был одним из великих людей,
-            в память о котором в 1978 году было решено назвать театр оперы и балета. Театр Оперы и Балета
-            имени Малдыбаева, расположенный на улице Абдрахманова в Свердловском районе Бишкека.Открылся
-            в 1937 году в городе Бишкек, как Музыкальный драматический театр.За долгий творческий путь в
-            Театр Оперы и Балета имени Малдыбаева поставлено большое количество спектаклей.Кыргызский театр
-            никогда не ограничивал свою деятельность лишь стационарной работой, активно укреплял и расширял
-            связи с театральным искусством других народов. Ведущие солисты выезжали во многие страны мира,
-            представляя оперное и балетное искусство нашей республики. Театром были поставлены музыкальные
-            драмы - "Алтын кыз" ("Золотая девушка") Власова и Фере (1937) и "Аджал ордуна" ("Не смерть, а жизнь")
-            Власова, Малдыбаева и Фере (1938). В 1939 году театр ставит первую киргизскую оперу "Айчурек"
-            ("Лунная красавица") Власова, Малдыбаева и Фере. Организованная в 1939 году балетная труппа театра
-            осуществила в 1940 году постановку первого национального киргизского балета "Анар" Власова и Фере.
-            В 1939 году, после Декады киргизского искусства и литературы в Москве, театр был награждён орденом
-            Ленина. В 1942 году преобразован в Киргизский театр оперы и балета.Спектакли идут на киргизском и русском языках.
+            {aboutInfo.description}
           </p>
         </div>
         <div className={cls.about__images}>
-          <img className={cls.about__img} src="/src/assets/img/opera1.png" alt="Opera Ballet" />
-          <img className={cls.about__img} src="/src/assets/img/opera2.png" alt="Opera Ballet" />
-          <img className={cls.about__img} src="/src/assets/img/opera3.png" alt="Opera Ballet" />
+          {
+            aboutInfo.image?.map((item) => {
+              <img
+                key={item.id}
+                className={cls.about__img}
+                src={item.image}
+                alt="Image"
+              />
+            })
+          }
         </div>
       </div>
-      <Theater />
+      <Theater images={aboutInfo.image} />
       <div className={cls.about__video}>
         <iframe
           width="100%"
           height="100%"
-          src="https://www.youtube.com/embed/c07FEvOYDVk"
+          src={aboutInfo.video_url}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -57,6 +61,6 @@ const About = () => {
       </div>
     </div>
   )
-};
+}
 
-export default About;
+export default About
