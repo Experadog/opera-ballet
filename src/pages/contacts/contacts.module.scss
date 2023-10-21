@@ -50,15 +50,6 @@
 
 @media screen and (max-width: 425px) {
   .contacts {
-    &__info {
-      div {
-        p {
-          strong {
-            font-size: 10px;
-          }
-        }
-      }
-    }
     &__map {
       iframe {
         height: auto;
@@ -67,30 +58,3 @@
   }
 }
 
-@media screen and (max-width: 375px) {
-  .contacts {
-    &__info {
-      div {
-        p {
-          strong {
-            font-size: 9px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .contacts {
-    &__info {
-      div {
-        p {
-          strong {
-            font-size: 8px;
-          }
-        }
-      }
-    }
-  }
-}

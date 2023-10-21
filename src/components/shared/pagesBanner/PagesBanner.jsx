@@ -1,10 +1,8 @@
-import React from 'react';
+import React from 'react'
 
+import cls from './pagesBanner.module.scss'
 
-
-import cls from "./pagesBanner.module.scss"
-
-export const PagesBanner = ({title}) => {
+export const PagesBanner = ({ title }) => {
   return (
     <>
       <div className={cls.black__banner}>
@@ -13,4 +11,3 @@ export const PagesBanner = ({title}) => {
     </>
   )
 }
-

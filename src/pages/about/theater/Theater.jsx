@@ -1,12 +1,12 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, Autoplay, EffectCoverflow } from 'swiper/modules';
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, A11y, Autoplay, EffectCoverflow } from 'swiper/modules'
 
-import cls from "./Theater.module.scss";
-import 'swiper/css';
-import 'swiper/css/bundle';
+import cls from './Theater.module.scss'
+import 'swiper/css'
+import 'swiper/css/bundle'
 
-export const Theater = () => {
+export const Theater = ({ images }) => {
   const breakpoints = {
     // Брейкпоинт на ширине экрана >= 640px
     10: {
@@ -19,8 +19,8 @@ export const Theater = () => {
     // Брейкпоинт на ширине экрана >= 1024px
     1024: {
       slidesPerView: 3,
-    }
-  };
+    },
+  }
 
   return (
     <div className={cls.theater}>
@@ -44,19 +44,14 @@ export const Theater = () => {
         autoplay={{ delay: 2000 }}
         speed={1000}
       >
-        <SwiperSlide className={cls.theater__image}>
-          <img src="/src/assets/img/opera1.png" alt="Opera Balet" />
-        </SwiperSlide>
-        <SwiperSlide className={cls.theater__image}>
-          <img src="/src/assets/img/opera2.png" alt="Opera Balet" />
-        </SwiperSlide>
-        <SwiperSlide className={cls.theater__image}>
-          <img src="/src/assets/img/opera3.png" alt="Opera Balet" />
-        </SwiperSlide>
-        <SwiperSlide className={cls.theater__image}>
-          <img src="/src/assets/img/opera1.png" alt="Opera Balet" />
-        </SwiperSlide>
+        {
+          images?.map(({ id, image }) => (
+            <SwiperSlide key={id} className={cls.theater__image}>
+              <img src={image} alt="Opera Balet" />
+            </SwiperSlide>
+          ))
+        }
       </Swiper>
     </div>
   )
-};
+}
