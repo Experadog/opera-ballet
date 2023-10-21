@@ -7,7 +7,7 @@ export const ArtistsCard = ({ id, image, first_name, last_name, title }) => {
   const navigate = useNavigate()
 
   return (
-    <div onClick={() => navigate(`/actor/${id}`)} className={cls.artists_card}>
+    <div onClick={() => navigate(`/artists/${id}`)} className={cls.artists_card}>
       <div className={cls.artists_card__wrapper}>
         <img
           className={cls.artists_card__image}

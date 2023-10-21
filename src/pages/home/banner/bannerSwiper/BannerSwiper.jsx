@@ -4,11 +4,9 @@ import cls from './BannerSwiper.module.scss'
 import classNames from 'classnames'
 
 export const BannerSwiper = ({ activeIndex, id, image, title }) => {
-  console.log(id)
-  console.log(activeIndex)
   return (
     <div className={classNames(cls.banner_swiper, {
-      banner_swiper__active: id === activeIndex + 1,
+      banner_swiper__active: (id - 1) === activeIndex,
     })}
     >
       <img

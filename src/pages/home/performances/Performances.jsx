@@ -1,18 +1,14 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
-import { ShowList } from '../../../constants/ShowList';
-import { SwiperCard } from '../swiperCard/SwiperCard';
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules'
+import { SwiperCard } from '../swiperCard/SwiperCard'
 
-import cls from "./Performances.module.scss";
-import 'swiper/css';
-import 'swiper/css/bundle';
-import { Link } from 'react-router-dom';
-import useGetShows from '../../../hooks/useGetShows';
+import cls from './Performances.module.scss'
+import 'swiper/css'
+import 'swiper/css/bundle'
+import { Link } from 'react-router-dom'
 
-export const Performances = () => {
-  const {scenesList} = useGetShows()
-
+export const Performances = ({ scenesList }) => {
   const breakpoints = {
     // Брейкпоинт на ширине экрана >= 640px
     10: {
@@ -25,8 +21,8 @@ export const Performances = () => {
     // Брейкпоинт на ширине экрана >= 1024px
     1024: {
       slidesPerView: 4,
-    }
-  };
+    },
+  }
 
   return (
     <div className={cls.performances}>
@@ -46,18 +42,19 @@ export const Performances = () => {
         speed={1000}
       >
         {
-          scenesList.map(item =>
+          scenesList.map(item => (
             <SwiperSlide key={item.id}>
               <SwiperCard {...item} />
             </SwiperSlide>
+          ),
           )
         }
       </Swiper>
       <div className={cls.performances__link}>
-        <Link to={"/scenes"}>
+        <Link to={'/scenes'}>
           Афиша спектаклей
         </Link>
       </div>
     </div>
   )
-};
+}

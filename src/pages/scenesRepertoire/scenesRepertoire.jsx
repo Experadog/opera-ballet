@@ -3,6 +3,7 @@ import cls from './scenesRepertoire.module.scss'
 import { PagesBanner } from '../../components/shared/pagesBanner/PagesBanner'
 import { UpcominCard } from './upcominPerf/UpcominPerf'
 import useGetShows from '../../hooks/useGetShows'
+import Loader from '../../components/shared/loader'
 
 const ScenesRepertoire = () => {
   const { scenesList } = useGetShows()
@@ -10,13 +11,19 @@ const ScenesRepertoire = () => {
   return (
     <div className={cls.scenesRepertoire}>
       <PagesBanner title={'ближайшие спектакли'} />
-      <div className={cls.container}>
-        <div className={cls.scenesRepertoire__cards}>
-          {scenesList.map((item) => (
-            <UpcominCard key={item.id} {...item} />
+      {
+        scenesList.length === 0
+        ? <Loader />
+        : (
+          <div className={cls.container}>
+            <div className={cls.scenesRepertoire__cards}>
+              {scenesList.map((item) => (
+                <UpcominCard key={item.id} {...item} />
           ))}
-        </div>
-      </div>
+            </div>
+          </div>
+        )
+      }
     </div>
   )
 }

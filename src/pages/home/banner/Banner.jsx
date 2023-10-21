@@ -8,22 +8,23 @@ import AOS from 'aos'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import classNames from 'classnames'
 
-import { BannerList } from '../../../constants/bannerList'
 import { BannerSwiper } from './bannerSwiper/BannerSwiper'
 
 import cls from './Banner.module.scss'
 import 'swiper/css'
 import 'swiper/css/bundle'
 import 'aos/dist/aos.css'
-import useGetShows from '../../../hooks/useGetShows'
 
-export const Banner = () => {
+export const Banner = ({ scenesList }) => {
   const [activeIndex, setActiveIndex] = React.useState(0)
-  const { scenesList } = useGetShows()
   const bannerContent = scenesList[activeIndex]
 
   const handleSlideChange = (swiper) => {
-    setActiveIndex(swiper.realIndex)
+    if (typeof swiper.realIndex === 'number' && !isNaN(swiper.realIndex)) {
+      setActiveIndex(swiper.realIndex)
+    } else {
+      setActiveIndex(0)
+    }
   }
 
   React.useEffect(() => {
@@ -40,8 +41,8 @@ export const Banner = () => {
       <div className={cls.banner__wrapper}>
         <div data-aos="fade-left" className={cls.banner__dots}>
           {
-            BannerList.map((item, index) => (
-              <div key={item.id} className={cls.banner__dot} >
+            scenesList?.map((item, index) => (
+              <div key={item?.id} className={cls.banner__dot} >
                 <div className={classNames(cls.banner__dot_block, {
                   banner__dot_active: index === activeIndex,
                 })}
@@ -50,7 +51,7 @@ export const Banner = () => {
                     banner__dot_number_active: index === activeIndex,
                   })}
                   >
-                    {item.id}
+                    {item?.id}
                   </div>
                 </div>
               </div>
@@ -85,7 +86,6 @@ export const Banner = () => {
         </div>
 
         <Swiper
-          data-aos="fade-left"
           className={cls.banner__swipe}
           modules={[Navigation, Pagination, A11y, Autoplay]}
           spaceBetween={8}
@@ -102,11 +102,9 @@ export const Banner = () => {
         >
           {
             scenesList?.map(item => (
-              <>
-                <SwiperSlide className={'swiper-button-next-banner'} key={item.id}>
-                  <BannerSwiper activeIndex={activeIndex} {...item} />
-                </SwiperSlide>
-              </>
+              <SwiperSlide className={'swiper-button-next-banner'} key={item.id}>
+                <BannerSwiper activeIndex={activeIndex} {...item} />
+              </SwiperSlide>
             ),
             )
           }

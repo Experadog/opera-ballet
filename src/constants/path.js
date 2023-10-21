@@ -5,6 +5,6 @@ export const path = {
   ABOUT: '/about',
   ARTISTS: '/artists',
   CONTACTS: '/contacts',
-  POSTER: '/poster/:id',
-  ACTOR: '/actor/:id',
+  POSTER: '/scenes/:id',
+  ACTOR: '/artists/:id',
 }

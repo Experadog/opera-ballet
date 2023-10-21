@@ -1,56 +1,55 @@
-// import React from 'react';
-
-import { ShowList } from '../../constants/ShowList'
+import React from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 
 import cls from './poster.module.scss'
+import useGetShows from '../../hooks/useGetShows'
+import Loader from '../../components/shared/loader'
 
 export default function Poster () {
-  const navigate = useNavigate()
   const { id } = useParams()
-  const data = ShowList.find((item) => item.id === Number(id))
-  const show = ShowList.filter((item) => item.id !== data.id).slice(0, 3)
+  const { scenesList } = useGetShows()
+  const navigate = useNavigate()
+  const data = scenesList.find(item => item.id === +id)
+  const show = scenesList.filter((item) => item.id !== data.id).slice(0, 3)
+
+  if (scenesList.length === 0) return <Loader />
 
   return (
     <div className={cls.poster}>
       <div className={cls.poster__banner}>
-        <h2 className={cls.poster__banner__title}>{data.title}</h2>
+        <h2 className={cls.poster__banner__title}>{data?.title}</h2>
       </div>
       <div className={cls.container}>
         <div className={cls.container__flex}>
           <div className={cls.poster__left}>
             <div className={cls.poster__left__image}>
-              <img src={data.url} alt={data.title} />
+              <img src={data?.image} alt={data?.title} />
             </div>
             <div className={cls.poster__left__content}>
-              <h4 className={cls.poster__left__content__title}>{data.title}</h4>
+              <h4 className={cls.poster__left__content__title}>{data?.title}</h4>
               <div className={cls.poster__left__content__info}>
                 <div className={cls.poster__left__content__info__icons}>
                   <div>
                     <img src="/src/assets/icons/time-icon.svg" alt="" />
-                    <p>{data.date}</p>
+                    <p>{data?.date}</p>
                   </div>
                   <div>
                     <img src="/src/assets/icons/price-icon.svg" alt="" />
-                    <p>{data.price}</p>
+                    <p>{data?.price}</p>
                   </div>
                   <div>
                     <img src="/src/assets/icons/geo-icon.svg" alt="" />
-                    <p>{data.geo}</p>
+                    <p>{data?.location}</p>
                   </div>
                 </div>
                 <div className={cls.poster__left__content__info__button}>
-                  <button>БИЛЕТ</button>
+                  <a href={data?.ticket}>БИЛЕТ</a>
                 </div>
               </div>
               <div className={cls.poster__left__description}>
                 <h4>ОПИСАНИЕ</h4>
-                <p>{data.description}</p>
-                <a href="#">
-                  BISHKEK BIG BAND
-                  <span>|</span>
-                </a>
+                <p>{data?.description}</p>
               </div>
             </div>
           </div>
@@ -59,23 +58,22 @@ export default function Poster () {
             <div className={cls.poster__right__flex}>
               {show.map((item) => (
                 <div
-                  onClick={() => navigate(`/poster/${item.id}`)}
                   key={item.id}
                   className={cls.poster__right__flex__card}
                 >
                   <div className={cls.poster__right__flex__card__link}>
-                    <a>
+                    <Link to={`/scenes/${item.id}`}>
                       <img
-                        src={item.url}
+                        src={item.image}
                         alt={item.title}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <h4>
-                    <Link to={`/poster/${item.id}`}>{item.title}</Link>
+                    <Link to={`/scenes/${item.id}`}>{item.title}</Link>
                   </h4>
                   <p>
-                    <a href="#">{item.date}</a>
+                    <a>{item.date}</a>
                   </p>
                 </div>
               ))}

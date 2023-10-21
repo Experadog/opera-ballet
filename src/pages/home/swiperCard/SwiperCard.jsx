@@ -1,11 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { CgCalendarDates } from "react-icons/cg";
-import { CiMoneyCheck1 } from "react-icons/ci";
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { CgCalendarDates } from 'react-icons/cg'
+import { CiMoneyCheck1 } from 'react-icons/ci'
 
-import cls from "./SwiperCard.module.scss";
+import cls from './SwiperCard.module.scss'
 
-export const SwiperCard = ({ title, date, price, image }) => {
+export const SwiperCard = ({ id, title, date, price, image, ticket }) => {
+  const navigate = useNavigate()
 
   return (
     <div className={cls.swiper_card}>
@@ -17,7 +18,7 @@ export const SwiperCard = ({ title, date, price, image }) => {
         <CiMoneyCheck1 />
         {price}
       </div>
-      <Link className={cls.swiper_card__link}>
+      <Link to={`/scenes/${id}`} className={cls.swiper_card__link}>
         <img
           className={cls.swiper_card__image}
           src={image}
@@ -28,10 +29,10 @@ export const SwiperCard = ({ title, date, price, image }) => {
         {title}
       </h2>
       <div className={cls.swiper_card__ticket}>
-        <button className={cls.swiper_card__btn}>
+        <a href={ticket} className={cls.swiper_card__btn}>
           Билеты
-        </button>
+        </a>
       </div>
     </div>
   )
-};
+}

@@ -3,6 +3,7 @@ import { ArtistsCard } from './artistsCard/ArtistsCard'
 
 import cls from './Artists.module.scss'
 import useGetArtists from '../../hooks/useGetArtists'
+import Loader from '../../components/shared/loader'
 
 const Artists = () => {
     const { artistsList } = useGetArtists()
@@ -13,7 +14,7 @@ const Artists = () => {
 
         {
             artistsList.length === 0
-            ? <h1 style={{ color: 'white' }}>Loading...</h1>
+            ? <Loader />
             : (
               <div className={cls.artists__wrapper}>
                 {
