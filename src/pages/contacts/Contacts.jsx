@@ -38,9 +38,13 @@ const Contacts = () => {
                     {item?.title}
                   </strong>
                 </p>
-                <p>
-                  {item?.description}
-                </p>
+                {
+                  item?.contacts.map(({ id, title }) => (
+                    <p key={id}>
+                      {title}
+                    </p>
+                  ))
+                }
               </div>
             ))
           }

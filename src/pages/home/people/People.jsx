@@ -3,16 +3,16 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules'
 
-import cls from "./People.module.scss";
-import 'swiper/css';
-import 'swiper/css/bundle';
-import { PeopleCard } from './peopleCard/PeopleCard';
-import { Link } from 'react-router-dom';
-import { path } from '../../../constants/path';
-import useGetArtists from '../../../hooks/useGetArtists';
+import cls from './People.module.scss'
+import 'swiper/css'
+import 'swiper/css/bundle'
+import { PeopleCard } from './peopleCard/PeopleCard'
+import { Link } from 'react-router-dom'
+import { path } from '../../../constants/path'
+import useGetArtists from '../../../hooks/useGetArtists'
 
 export const People = () => {
-  const {artistsList} = useGetArtists()
+  const { artistsList } = useGetArtists()
 
   const breakpoints = {
     // Брейкпоинт на ширине экрана >= 640px
@@ -26,11 +26,11 @@ export const People = () => {
     // Брейкпоинт на ширине экрана >= 1024px
     1024: {
       slidesPerView: 5,
-    }
-  };
+    },
+  }
 
   return (
-      <div className={cls.people}>
+    <div className={cls.people}>
       <div className={cls.people__wrapper}>
         <h2 className={cls.people__title}>
           НАШИ ИЗВЕСТНЫЕ ЛЮДИ
@@ -49,10 +49,11 @@ export const People = () => {
           speed={1000}
         >
           {
-            artistsList?.map(item =>
+            artistsList?.map(item => (
               <SwiperSlide key={item.id} className={cls.people__swiper_slide}>
                 <PeopleCard {...item} />
               </SwiperSlide>
+            ),
             )
           }
         </Swiper>
@@ -62,4 +63,4 @@ export const People = () => {
       </div>
     </div>
   )
-};
+}
