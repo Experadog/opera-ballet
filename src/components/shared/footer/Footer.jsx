@@ -1,6 +1,11 @@
-// import React from 'react';
-
+import React from 'react'
 import cls from './footer.module.scss'
+
+import { BiLogoTelegram } from 'react-icons/bi'
+import { AiFillMessage } from 'react-icons/ai'
+import { BsFillTelephoneFill, BsTwitter, BsInstagram, BsFacebook, BsYoutube } from 'react-icons/bs'
+import { PiMaskHappyFill } from 'react-icons/pi'
+import { FaTheaterMasks } from 'react-icons/fa'
 
 export const Footer = () => {
   return (
@@ -13,34 +18,19 @@ export const Footer = () => {
               <ul>
                 <li>
                   <a href="#">
-                    <img
-                      width="14px"
-                      height="14px"
-                      src="/src/assets/icons/telegram-icon.svg"
-                      alt=""
-                    />
+                    <BiLogoTelegram style={{ color: 'orange' }} />
                     <span>Абдрахманова 167. Бишкек</span>
                   </a>
                 </li>
                 <li>
                   <a href="mailto:success@gmail.com">
-                    <img
-                      width="14px"
-                      height="14px"
-                      src="/src/assets/icons/message-icon.svg"
-                      alt=""
-                    />
+                    < AiFillMessage style={{ color: 'orange' }} />
                     <span>success@gmail.com</span>
                   </a>
                 </li>
                 <li>
                   <a href="tel:+996 312 621 619">
-                    <img
-                      width="14px"
-                      height="14px"
-                      src="/src/assets/icons/phone-icon.svg"
-                      alt=""
-                    />
+                    < BsFillTelephoneFill style={{ color: 'orange' }} />
                     <span>контакты: +996 312 621 619</span>
                   </a>
                 </li>
@@ -53,34 +43,19 @@ export const Footer = () => {
               <ul>
                 <li>
                   <a href="#">
-                    <img
-                      width="14px"
-                      height="14px"
-                      src="/src/assets/icons/mask-icon.svg"
-                      alt=""
-                    />
+                    <FaTheaterMasks style={{ color: 'orange' }} />
                     <span>Angels in the city</span>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img
-                      width="14px"
-                      height="14px"
-                      src="/src/assets/icons/mask-icon.svg"
-                      alt=""
-                    />
+                    <FaTheaterMasks style={{ color: 'orange' }} />
                     <span>The Color Purple</span>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img
-                      width="14px"
-                      height="14px"
-                      src="/src/assets/icons/mask-icon.svg"
-                      alt=""
-                    />
+                    <FaTheaterMasks style={{ color: 'orange' }} />
                     <span>Anatomy of a Suicide</span>
                   </a>
                 </li>
@@ -93,42 +68,22 @@ export const Footer = () => {
             <ul>
               <li>
                 <a href="https://www.facebook.com/bishkek.operaballet">
-                  <img
-                    width="16px"
-                    height="16px"
-                    src="/src/assets/icons/facebook-icon.svg"
-                    alt=""
-                  />
+                  <BsFacebook style={{ color: 'orange' }} />
                 </a>
               </li>
               <li>
                 <a href="https://www.instagram.com/opera.ballet.teatr/">
-                  <img
-                    width="16px"
-                    height="16px"
-                    src="/src/assets/icons/instagram-icon.svg"
-                    alt=""
-                  />
+                  < BsInstagram style={{ color: 'orange' }} />
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <img
-                    width="16px"
-                    height="16px"
-                    src="/src/assets/icons/twitter-icon.svg"
-                    alt=""
-                  />
+                  < BsTwitter style={{ color: 'orange' }} />
                 </a>
               </li>
               <li>
                 <a href="https://www.youtube.com/watch?v=6wiZw2t6WEU&ab_channel=%D0%90%D0%BB%D0%B0-%D0%A2%D0%BE%D0%BE24">
-                  <img
-                    width="16px"
-                    height="16px"
-                    src="/src/assets/icons/youtube-icon.svg"
-                    alt=""
-                  />
+                  < BsYoutube style={{ color: 'orange' }} />
                 </a>
               </li>
             </ul>

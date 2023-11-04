@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
+import { BiTimeFive, BiMoney, BiSolidPaperPlane } from 'react-icons/bi'
 
 import cls from './poster.module.scss'
 import useGetShows from '../../hooks/useGetShows'
@@ -31,15 +32,15 @@ export default function Poster () {
               <div className={cls.poster__left__content__info}>
                 <div className={cls.poster__left__content__info__icons}>
                   <div>
-                    <img src="/src/assets/icons/time-icon.svg" alt="" />
+                    < BiTimeFive style={{ color: 'orange' }} />
                     <p>{data?.date}</p>
                   </div>
                   <div>
-                    <img src="/src/assets/icons/price-icon.svg" alt="" />
+                    < BiMoney style={{ color: 'orange' }} />
                     <p>{data?.price}</p>
                   </div>
                   <div>
-                    <img src="/src/assets/icons/geo-icon.svg" alt="" />
+                    < BiSolidPaperPlane style={{ color: 'orange' }} />
                     <p>{data?.location}</p>
                   </div>
                 </div>

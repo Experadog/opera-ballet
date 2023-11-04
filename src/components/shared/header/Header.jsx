@@ -23,7 +23,7 @@ export const Header = () => {
         <Link to={path.HOME} className={cls.header__icon}>
           <img
             className={cls.header__img}
-            src="/public/icon-logo.png"
+            src="/icon-logo.png"
             alt="Опера Балет Театры"
           />
         </Link>
