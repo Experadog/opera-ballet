@@ -33,7 +33,6 @@ export const Banner = ({ scenesList }) => {
     AOS.init()
   }, [activeIndex])
 
-  console.log(bannerContent)
   return (
     <div style={{
       backgroundImage: `url(${bannerContent?.image})`,
@@ -109,7 +108,10 @@ export const Banner = ({ scenesList }) => {
         >
           {
             scenesList?.map(item => (
-              <SwiperSlide className={'swiper-button-next-banner'} key={item.id}>
+              <SwiperSlide
+                className={'swiper-button-next-banner'}
+                key={item.id}
+              >
                 <BannerSwiper activeIndex={activeIndex} {...item} />
               </SwiperSlide>
             ),
