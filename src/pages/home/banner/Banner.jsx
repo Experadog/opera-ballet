@@ -1,14 +1,15 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules'
+import { useNavigate } from 'react-router-dom'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { ImPriceTag } from 'react-icons/im'
-import AOS from 'aos'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
-import classNames from 'classnames'
+import AOS from 'aos'
 
 import { BannerSwiper } from './bannerSwiper/BannerSwiper'
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import classNames from 'classnames'
 
 import cls from './Banner.module.scss'
 import 'swiper/css'
@@ -18,6 +19,7 @@ import 'aos/dist/aos.css'
 export const Banner = ({ scenesList }) => {
   const [activeIndex, setActiveIndex] = React.useState(0)
   const bannerContent = scenesList[activeIndex]
+  const navigate = useNavigate()
 
   const handleSlideChange = (swiper) => {
     if (typeof swiper.realIndex === 'number' && !isNaN(swiper.realIndex)) {
@@ -31,6 +33,7 @@ export const Banner = ({ scenesList }) => {
     AOS.init()
   }, [activeIndex])
 
+  console.log(bannerContent)
   return (
     <div style={{
       backgroundImage: `url(${bannerContent?.image})`,
@@ -79,7 +82,11 @@ export const Banner = ({ scenesList }) => {
             </div>
           </div>
           <div>
-            <button data-aos="fade-up" className={cls.banner__content_btn}>
+            <button
+              onClick={() => navigate(`/scenes/${bannerContent?.id}`)}
+              data-aos="fade-up"
+              className={cls.banner__content_btn}
+            >
               Подробнее
             </button>
           </div>
@@ -94,8 +101,8 @@ export const Banner = ({ scenesList }) => {
           loop={true}
           navigation={{ nextEl: '.swiper-button-next-banner', prevEl: '.swiper-button-prev-banner' }}
           pagination={{ el: '.swiper-pagination-banner', clickable: true }}
-          autoplay={{ delay: 2000 }}
-          speed={1000}
+          autoplay={{ delay: 3000 }}
+          speed={1500}
           direction="horizontal"
           onSlideChange={handleSlideChange}
           onSwiper={(swiper) => handleSlideChange(swiper)}
